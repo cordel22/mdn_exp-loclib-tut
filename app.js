@@ -3,11 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var wiki = require('./wiki.js');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var catalogRouter = require('./routes/catalog');  
+//Import routes for "catalog" area of site
+
 var app = express();
+
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -29,6 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/catalog', catalogRouter);  
+// Add catalog routes to middleware chain.
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -44,5 +52,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use('/wiki', wiki);
 
 module.exports = app;
