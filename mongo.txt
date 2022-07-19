@@ -1,0 +1,7 @@
+
+
+
+mongodb+srv://cordel22:<password>@cluster-0.nj9uh.mongodb.net/?retryWrites=true&w=majority
+
+
+mongodb+srv://cordel22:dopici123@cluster-0.nj9uh.mongodb.net/?retryWrites=true&w=majority
